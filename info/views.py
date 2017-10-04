@@ -1,3 +1,5 @@
+from django.core.urlresolvers import reverse
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
 from info.forms import SchoolRequestForm
@@ -39,8 +41,16 @@ def home(request):
 			v.save()
 
 			logging.debug('Returning success screen')
-			return render(request, 'success.html', {'chapter': [y for x, y in CHAPTER_LIST if x == int(v.chapter)][0]})
+			return HttpResponseRedirect(reverse('success'))
 		else:
 			logging.debug('Form failed %s', request_form)
 
 	return render(request, 'home.html', {'form': request_form})
+
+
+def success(request):
+	v = SchoolRequestInformation.objects.order_by('-id')[0]
+	logging.debug('Finding chapter')
+	chapter = [y for x, y in CHAPTER_LIST if x == int(v.chapter)][0]
+	logging.debug('Success %s', chapter)
+	return render(request, 'success.html', {'chapter': chapter})

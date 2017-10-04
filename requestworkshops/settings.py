@@ -28,7 +28,6 @@ SECRET_KEY = config.get('secrets', 'SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config.getboolean('debug', 'TEMPLATE_DEBUG')
-print(config.items('allowed hosts'))
 
 ALLOWED_HOSTS = [y for (x, y) in config.items('allowed hosts') if 'host' in x]
 

@@ -1,0 +1,73 @@
+html, body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #194B9E;
+}
+
+.text-light {
+    color: #5876d0;
+}
+
+.text-dark {
+    color: #00246F;
+}
+
+.background-light {
+    background-color: #5876d0;
+}
+
+.background-dark {
+    background-color: #00246F;
+}
+
+input {
+    color: #FFFFFF;
+}
+
+/* Materialize component specific css */
+.input-field label {
+    color: #D1D1D1;
+}
+
+/* label focus color */
+.input-field input[type=text]:focus + label {
+    color: #ff80ab;
+}
+
+/* label underline focus color */
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+}
+
+/* valid color */
+.input-field input[type=text].valid {
+    border-bottom: 1px solid #D1D1D1;
+    box-shadow: 0 1px 0 0 #D1D1D1;
+}
+
+/* invalid color */
+.input-field input .invalid {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+}
+
+.select-wrapper span.caret {
+    color: #FFFFFF;
+}
+
+.filled-in[type="checkbox"]:not(:checked) + label::after {
+    border: 2px solid #D1D1D1;
+}
+
+label {
+    color: #D1D1D1;
+}
+
+.invalid + label:after, :focus.invalid + label:after {
+    white-space: pre;
+}
+
+.socials {
+    color: #D1D1D1;
+    margin-left: 5px;
+}

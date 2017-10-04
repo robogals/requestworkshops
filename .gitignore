@@ -1,0 +1,6 @@
+.idea/
+settings.ini
+staticfiles/
+db.sqlite3
+*.pyc
+*.log

@@ -1,0 +1,32 @@
+{% load static %}
+{% load widget_tweaks %}
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{% static "info/css/materialize.min.css" %}">
+  <link rel="stylesheet" href="{% static "info/css/home.css" %}">
+
+</head>
+
+<body>
+<div style="height: 100%; display: flex; align-items: center;">
+  <div class="container">
+    <h1 style="font-weight: 100; color: #FFFFFF">Thank you!</h1>
+    <p style="color: #FFFFFF;" class="flow-text">{{ chapter }} will be getting back to you as soon as possible.</p>
+    <a href="https://robogals.org" class="btn waves-effect waves-red">Go to Global Site</a>
+  </div>
+
+  <div style="position: absolute; bottom: 20px; width: 100%; display: flex; justify-content: center;">
+  <a class="socials" href="https://www.facebook.com/robogals/"><i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i></a>
+  <a class="socials" href="https://twitter.com/robogals"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></a>
+  <a class="socials" href="https://www.instagram.com/robogals/"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>
+  <a class="socials" href="https://www.linkedin.com/company-beta/873367/"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
+  <a class="socials" href="https://github.com/robogals/myrobogals"><i class="fa fa-github-square fa-2x" aria-hidden="true"></i></a>
+</div>
+</div>
+</body>
+</html>

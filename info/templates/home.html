@@ -1,0 +1,215 @@
+{% load static %}
+{% load widget_tweaks %}
+
+<html style="position: relative; min-height: 100%">
+<!-- Don't look at this.. it's messy... -->
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{% static "info/css/materialize.min.css" %}">
+  <link rel="stylesheet" href="{% static "info/css/home.css" %}">
+</head>
+
+<body style="margin-bottom: 60px;">
+<div style="display: table; width: 100%; height: 100%;">
+  <div style="display: table-cell; vertical-align: middle;">
+
+    <div class="container">
+      <h1 style="font-weight: 100; color: #FFFFFF">Contact Us</h1>
+      <p style="color: #FFFFFF; " class="flow-text">Want us to visit your school? Get in touch with us and we'll get back to you as soon as possible.</p>
+
+      <div class="row">
+        <form method="POST" action="{% url 'home' %}" class="col s12"> {% csrf_token %}
+          <div class="row">
+            <div class="input-field col s12 m6">
+              {% if not form.first_name.errors %}
+                {{ form.first_name }}
+                <label for="id_first_name">First Name</label>
+              {% else %}
+                {{ form.first_name|add_class:"invalid" }}
+                {% for e in form.first_name.errors %}
+                  <label for="id_first_name" data-error="{{ e }}">First Name</label>
+                {% endfor %}
+              {% endif %}
+            </div>
+            <div class="input-field col s12 m6">
+              {% if not form.last_name.errors %}
+                {{ form.last_name }}
+                <label for="id_last_name">Last Name</label>
+              {% else %}
+                {{ form.last_name|add_class:"invalid" }}
+                {% for e in form.last_name.errors %}
+                  <label for="id_last_name" data-error="{{ e }}">Last Name</label>
+                {% endfor %}
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12 m6">
+              {% if not form.mobile.errors %}
+                {{ form.mobile }}
+                <label for="id_mobile">Contact Number</label>
+              {% else %}
+                {{ form.mobile|add_class:"invalid" }}
+                {% for e in form.mobile.errors %}
+                  <label for="id_mobile" data-error="{{ e }}">Contact Number</label>
+                {% endfor %}
+              {% endif %}
+            </div>
+            <div class="input-field col s12 m6">
+              {% if not form.email.errors %}
+                {{ form.email }}
+                <label for="id_email">Email</label>
+              {% else %}
+                {{ form.email|add_class:"invalid" }}
+                {% for e in form.email.errors %}
+                  <label for="id_email" data-error="{{ e }}">Email</label>
+                {% endfor %}
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12 m6">
+              {% if not form.school_name.errors %}
+                {{ form.school_name }}
+                <label for="id_school_name">Email</label>
+              {% else %}
+                {{ form.school_name|add_class:"invalid" }}
+                {% for e in form.school_name.errors %}
+                  <label for="id_school_name" data-error="{{ e }}">School Name</label>
+                {% endfor %}
+              {% endif %}
+            </div>
+            <div class="input-field col s12 m6">
+              {% if not form.position.errors %}
+                {{ form.position }}
+                <label for="id_position">Your Current Position</label>
+              {% else %}
+                {{ form.position|add_class:"invalid" }}
+                {% for e in form.position.errors %}
+                  <label for="id_position" data-error="{{ e }}">Your Current Position</label>
+                {% endfor %}
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12 m6">
+              {% if not form.school_address.errors %}
+                {{ form.school_address }}
+                <label for="id_school_address">School's Address</label>
+              {% else %}
+                {{ form.school_address|add_class:"invalid" }}
+                {% for e in form.school_address.errors %}
+                  <label for="id_school_address" data-error="{{ e }}">School's Address</label>
+                {% endfor %}
+              {% endif %}
+
+            </div>
+            <div class="input-field col s12 m4">
+              {% if not form.school_city.errors %}
+                {{ form.school_city }}
+                <label for="id_school_city">City</label>
+              {% else %}
+                {{ form.school_city|add_class:"invalid" }}
+                {% for e in form.school_city.errors %}
+                  <label for="id_school_city" data-error="{{ e }}">City</label>
+                {% endfor %}
+              {% endif %}
+            </div>
+            <div class="input-field col s12 m2">
+              {% if not form.school_postcode.errors %}
+                {{ form.school_postcode }}
+                <label for="id_school_postcode">Postcode</label>
+              {% else %}
+                {{ form.school_postcode|add_class:"invalid" }}
+                {% for e in form.school_postcode.errors %}
+                  <label for="id_school_postcode" data-error="{{ e }}">Postcode</label>
+                {% endfor %}
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12 m4">
+              {% if not form.chapter.errors %}
+                {{ form.chapter }}
+                <label for="id_chapter">Select Your Local Chapter</label>
+              {% else %}
+                {{ form.chapter|add_class:"invalid" }}
+                {% for e in form.chapter.errors %}
+                  <label for="id_chapter" data-error="{{ e }}">Select Your Local Chapter</label>
+                {% endfor %}
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col s12">
+              {{ form.permission_to_contact|add_class:"filled-in" }}
+              <label for="id_permission_to_contact">Send me the occasional email about upcoming Robogals events</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col s12">
+              {% if not form.terms.errors %}
+                {{ form.terms|add_class:"filled-in" }}
+                <label for="id_terms">I understand the terms and conditions of listed <a class="modal-trigger" href="#modal1">here</a></label>
+              {% else %}
+                {{ form.terms|add_class:"filled-in" }}
+                {% for e in form.terms.errors %}
+                  <label for="id_terms" style="color: #EF5350">I understand the terms and conditions of listed <a class="modal-trigger" href="#modal1" style="color: #B71C1C">here</a></label>
+                {% endfor %}
+              {% endif %}
+            </div>
+          </div>
+
+          <button type="submit" class="btn waves-effect waves-red">REQUEST A WORKSHOP!</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="position: absolute; bottom: 20px; width: 100%; display: flex; justify-content: center;">
+  <a class="socials" href="https://www.facebook.com/robogals/"><i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i></a>
+  <a class="socials" href="https://twitter.com/robogals"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></a>
+  <a class="socials" href="https://www.instagram.com/robogals/"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>
+  <a class="socials" href="https://www.linkedin.com/company-beta/873367/"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
+  <a class="socials" href="https://github.com/robogals/myrobogals"><i class="fa fa-github-square fa-2x" aria-hidden="true"></i></a>
+</div>
+
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <h4>Register for Robogals Workshops Terms and Conditions</h4>
+    <p>List our terms and conditions here. Things we should be listing:</p>
+    <ul>
+      <li>Depending on demand, the time we will get back to them</li>
+      <li>Privacy</li>
+      <li>Data retention</li>
+      <li>Partnerships information if required</li>
+      <li>Misc information</li>
+    </ul>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+  </div>
+</div>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="{% static "info/js/materialize.min.js" %}"></script>
+
+<script>
+    $(document).ready(function () {
+        $('select').material_select();
+        $('.modal').modal();
+    });
+</script>
+</body>
+</html>

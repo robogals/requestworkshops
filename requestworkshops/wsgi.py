@@ -13,6 +13,6 @@ import sys
 from django.core.wsgi import get_wsgi_application
 
 sys.path.append('/home/ubuntu/requestworkshops')
-os.environ['DJANGO_SETTINGS_MODULE'] = "settings"
+os.environ['DJANGO_SETTINGS_MODULE'] = "requestworkshops.settings"
 
 application = get_wsgi_application()

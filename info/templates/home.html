@@ -79,7 +79,7 @@
             <div class="input-field col s12 m6">
               {% if not form.school_name.errors %}
                 {{ form.school_name }}
-                <label for="id_school_name">Email</label>
+                <label for="id_school_name">School Name</label>
               {% else %}
                 {{ form.school_name|add_class:"invalid" }}
                 {% for e in form.school_name.errors %}
@@ -172,6 +172,7 @@
             </div>
           </div>
 
+          <br/>
           <button type="submit" class="btn waves-effect waves-red">REQUEST A WORKSHOP!</button>
         </form>
       </div>

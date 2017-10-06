@@ -30,3 +30,4 @@ class SchoolRequestInformation(models.Model):
 	chapter = models.IntegerField(choices=CHAPTER_LIST, default=0)
 	permission_to_contact = models.BooleanField(default=0)
 	sent = models.BooleanField(default=0)
+	requested_time = models.DateTimeField(auto_now_add=True, blank=True, null=True)

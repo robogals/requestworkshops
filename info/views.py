@@ -5,26 +5,15 @@ from django.shortcuts import render
 from info.forms import SchoolRequestForm
 from info.models import SchoolRequestInformation, CHAPTER_LIST
 
-import logging
-
-logging.basicConfig(filename='views.log', level=logging.DEBUG, format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
-
-# TODO: Things on my list...
-# 5. Need to deploy onto myrobogals instance
-# 6. Need to be able to integrate into myrobogals db and send emails (cronjob with django python script to save to DB)
-# 7. Admin interface to view metrics (using graph.js)
-# 9. Clean up code
+# import logging
+# logging.basicConfig(filename='views.log', level=logging.DEBUG, format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
 
 
 def home(request):
 	request_form = SchoolRequestForm(request.POST or None)
-	logging.debug(request)
 
 	if request.method == 'POST':
-		logging.debug('Posted')
-
 		if request_form.is_valid():
-			logging.debug('Form past checks')
 			v = SchoolRequestInformation()
 			v.school_name = request_form.cleaned_data['school_name']
 			v.first_name = request_form.cleaned_data['first_name']
@@ -40,17 +29,12 @@ def home(request):
 
 			v.save()
 
-			logging.debug('Returning success screen')
 			return HttpResponseRedirect(reverse('success'))
-		else:
-			logging.debug('Form failed %s', request_form)
 
 	return render(request, 'home.html', {'form': request_form})
 
 
 def success(request):
 	v = SchoolRequestInformation.objects.order_by('-id')[0]
-	logging.debug('Finding chapter')
 	chapter = [y for x, y in CHAPTER_LIST if x == int(v.chapter)][0]
-	logging.debug('Success %s', chapter)
 	return render(request, 'success.html', {'chapter': chapter})

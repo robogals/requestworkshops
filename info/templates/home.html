@@ -13,6 +13,12 @@
   <link rel="stylesheet" href="{% static "info/css/home.css" %}">
   <title>Robogals - Request a Workshop</title>
   <link rel="shortcut icon" href="{% static "info/img/faviconrect.png" %}"/>
+
+  <style>
+    ol { counter-reset: item }
+    li { display: block }
+    li:before { content: counters(item, ".") " "; counter-increment: item }
+  </style>
 </head>
 
 <body style="margin-bottom: 60px;">
@@ -172,7 +178,6 @@
             </div>
           </div>
 
-          <br/>
           <button type="submit" class="btn waves-effect waves-red">REQUEST A WORKSHOP!</button>
         </form>
       </div>
@@ -181,25 +186,31 @@
 </div>
 
 <div style="position: absolute; bottom: 20px; width: 100%; display: flex; justify-content: center;">
-  <a class="socials" href="https://www.facebook.com/robogals/"><i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i></a>
-  <a class="socials" href="https://twitter.com/robogals"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></a>
-  <a class="socials" href="https://www.instagram.com/robogals/"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>
-  <a class="socials" href="https://www.linkedin.com/company-beta/873367/"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
-  <a class="socials" href="https://github.com/robogals/myrobogals"><i class="fa fa-github-square fa-2x" aria-hidden="true"></i></a>
+  <img src="{% static "info/img/iWorld Logo_Red.png" %}" width="150px" style="margin-right: 10px;"/>
+  <img src="{% static "info/img/Robogals_Logo.png" %}" height="50px"/>
 </div>
 
 <div id="modal1" class="modal">
   <div class="modal-content">
     <h4>Register for Robogals Workshops Terms and Conditions</h4>
-    <p>List our terms and conditions here. Things we should be listing:</p>
-    <ul>
-      <li>Depending on demand, the time we will get back to them</li>
-      <li>Privacy</li>
-      <li>Data retention</li>
-      <li>Partnerships information if required</li>
-      <li>Misc information</li>
-    </ul>
+    <ol>
+      <li>By requesting a workshop you agree and acknowledge that:
+        <ol>
+          <li>There is a waiting list involved in requesting workshops. Robogals gives preference to disadvantaged primary and secondary schools, and primary and secondary schools that we have not visited in the calendar year.</li>
+          <li>The maximum number of students per class is 30 students.</li>
+          <li>Adequate classroom space is necessary for workshops to be conducted in.</li>
+        </ol>
+      </li>
+      <li>By providing your contact details you agree:
+        <ol>
+          <li>For us to send you communication in relation to our activities, including but not limited to, student competitions and other Robogals opportunities.</li>
+          <li>You will be using reasonable efforts to distribute communication from Robogals to your network.</li>
+        </ol>
+      </li>
+    </ol>
+    T&C last edited as of November 2017
   </div>
+
   <div class="modal-footer">
     <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
   </div>

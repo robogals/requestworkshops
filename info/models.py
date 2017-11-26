@@ -16,8 +16,8 @@ CHAPTER_LIST = (
 )
 
 WORKSHOP_TYPE_LIST = (
-	(0, 'Robotics - Robogals Workshop'),
-	(1, 'Non-Robotics - iWorld Workshop'),
+	(0, 'Robotics -LEGO Mindstorms'),
+	(1, 'Non-Robotics - iWorld Australia STEAM equipment'),
 	(2, 'Both')
 )
 

@@ -15,9 +15,9 @@
   <link rel="shortcut icon" href="{% static "info/img/faviconrect.png" %}"/>
 
   <style>
-    ol { counter-reset: item }
-    li { display: block }
-    li:before { content: counters(item, ".") " "; counter-increment: item }
+    .ol-model { counter-reset: item }
+    .li-model { display: block }
+    .li-model:before { content: counters(item, ".") " "; counter-increment: item }
   </style>
 </head>
 
@@ -144,16 +144,14 @@
           </div>
 
           <div class="row">
-            <div class="input-field col s12 m4">
-              {% if not form.chapter.errors %}
-                {{ form.chapter }}
-                <label for="id_chapter">Select Your Local Chapter</label>
-              {% else %}
-                {{ form.chapter|add_class:"invalid" }}
-                {% for e in form.chapter.errors %}
-                  <label for="id_chapter" data-error="{{ e }}">Select Your Local Chapter</label>
-                {% endfor %}
-              {% endif %}
+            <div class="input-field col s12 m6 browser-default">
+              {{ form.chapter }}   
+              <label for="id_chapter">Select Your Local Chapter</label>
+            </div>
+
+            <div class="input-field col s12 m6 browser-default">
+              {{ form.workshop_type }}  
+              <label for="id_chapter">Type of Workshop</label>
             </div>
           </div>
 
@@ -186,25 +184,30 @@
 </div>
 
 <div style="position: absolute; bottom: 20px; width: 100%; display: flex; justify-content: center;">
-  <img src="{% static "info/img/iWorld Logo_Red.png" %}" width="150px" style="margin-right: 10px;"/>
-  <img src="{% static "info/img/Robogals_Logo.png" %}" height="50px"/>
+  <img src="{% static "info/img/iWorld Logo_Red.png" %}" width="150px" height="50px" style="margin-right: 10px;"/>
+  <img src="{% static "info/img/Robogals_Logo.png" %}" height="50px" width="92px"/>
 </div>
 
 <div id="modal1" class="modal">
   <div class="modal-content">
     <h4>Register for Robogals Workshops Terms and Conditions</h4>
-    <ol>
-      <li>By requesting a workshop you agree and acknowledge that:
-        <ol>
-          <li>There is a waiting list involved in requesting workshops. Robogals gives preference to disadvantaged primary and secondary schools, and primary and secondary schools that we have not visited in the calendar year.</li>
-          <li>The maximum number of students per class is 30 students.</li>
-          <li>Adequate classroom space is necessary for workshops to be conducted in.</li>
+    <ol class="ol-model">
+      <li class="li-model">By requesting a workshop you agree and acknowledge that:
+        <ol class="ol-model">
+          <li class="li-model">You are an authorized employee of a registered primary or secondary school in Australia and New Zealand.</li>
+          <li class="li-model">There is a waiting list involved in requesting workshops. Robogals gives preference to disadvantaged primary and secondary schools, and primary and secondary schools that we have not visited in the calendar year.</li>
+          <li class="li-model">The maximum number of students per class is 30 students.</li>
+          <li class="li-model">Adequate classroom space is necessary for workshops to be conducted in.</li>
+          <li class="li-model">Robogals reserves the right to cancel workshops if conducting a workshop causes, or appears to cause, conflict with Robogals values or policies and procedures.</li>
+          <li class="li-model">Robogals is a not-for- profit organisation that comprises anoverwhelming majority of university student-volunteers. Further delays in processing your request can be expected throughout examination periods and holiday periods of related universities’ calendars.</li>
         </ol>
       </li>
-      <li>By providing your contact details you agree:
-        <ol>
-          <li>For us to send you communication in relation to our activities, including but not limited to, student competitions and other Robogals opportunities.</li>
-          <li>You will be using reasonable efforts to distribute communication from Robogals to your network.</li>
+      <li class="li-model">By providing your contact details you agree:
+        <ol class="ol-model">
+          <li class="li-model">For us to send you communication in relation to our activities, including but not limited to, student competitions and other Robogals opportunities.</li>
+          <li class="li-model">You will be using reasonable efforts to distribute communication from Robogals to your network.</li>
+          <li class="li-model">For Robogals to retain data you input to the website, or subsequently share with us through other means ofcommunication, for at least two years starting from the date data is shared with Robogals.</li>
+          <li class="li-model">Your data will not be sold or shared to any third-party, unless Robogals obtains your consent.</li>
         </ol>
       </li>
     </ol>

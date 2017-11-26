@@ -15,6 +15,12 @@ CHAPTER_LIST = (
 	(10, 'Robogals Toowoomba')
 )
 
+WORKSHOP_TYPE_LIST = (
+	(0, 'Robotics - Robogals Workshop'),
+	(1, 'Non-Robotics - iWorld Workshop'),
+	(2, 'Both')
+)
+
 
 # Model for the requesting school's information
 class SchoolRequestInformation(models.Model):
@@ -31,3 +37,4 @@ class SchoolRequestInformation(models.Model):
 	permission_to_contact = models.BooleanField(default=0)
 	sent = models.BooleanField(default=0)
 	requested_time = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+	workshop_type = models.IntegerField(choices=WORKSHOP_TYPE_LIST, default=0)

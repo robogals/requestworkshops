@@ -30,7 +30,7 @@ def home(request):
 			v.save()
 
 			return HttpResponseRedirect(reverse('success'))
-
+	print request_form['chapter']
 	return render(request, 'home.html', {'form': request_form})
 
 
